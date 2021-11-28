@@ -1,0 +1,161 @@
+* {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  min-height: 100vh;
+  background: rgb(215, 222, 223);
+}
+
+/*
+    ESTILOS DEL HEADER
+************************************************************************/
+.Header-Escritorio {
+  display: none;
+}
+
+header {
+  background: rgb(4, 43, 53);
+  background-image: radial-gradient(ellipse closest-side at 50% 50%, #3a3f45, #37383c 25%, #343233);
+  background-repeat: no-repeat;
+  background-size: 100% 1000px;
+  background-position: center -120px;
+}
+
+header img {
+  width: 100%;
+}
+
+/*
+    ESTILOS DE LA BARRA DE NAVEGACION
+************************************************************************/
+.Navegacion {
+  background: white;
+  color: black;
+}
+
+.nav-opcion {
+  color: black;
+}
+
+.logo{
+  display: block;
+  margin: 0px;
+  padding: 5px 16px;
+}
+
+/*
+    ESTILOS DE LOS ARTICULOS DEL INDEX
+************************************************************************/
+.Cont-Articulos {
+  background: rgb(215, 222, 223);
+  padding-top: 0;
+}
+
+article {
+  background: none;
+  margin: 0 auto;
+  margin-top: 1em;
+  transition: all ease .5s;
+}
+
+article:hover {
+  text-decoration: underline;
+}
+
+.Article-Img-Container {
+  width: 100%;
+}
+
+.Article-Img-Container img {
+  width: 100%;
+}
+
+.Article-Title-Container {
+  width: 100%;
+  background: white;
+  padding: 1.2em 1em;
+  color: rgb(102, 89, 92);
+  font-size: 1em;
+  font-weight: bold;
+  transition: all ease .5s;
+}
+
+/*
+    ESTILOS DE LOS ARTICULOS COMPLETOS
+************************************************************************/
+.Full-Article-Container {
+  background: white;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  box-sizing: border-box;
+  padding: 1.8em;
+  color: rgb(84, 84, 84);
+}
+
+.Full-Article-Container h1 {
+  font-size: 1.8em;
+  margin-bottom: 1.3em;
+}
+
+.Full-Article-Container p {
+  text-align: justify;
+  font-size: 1.1em;
+}
+
+.Full-Article-Container img {
+  max-width: 85%;
+  margin-bottom: 1em;
+}
+
+ul li {
+  text-align: left;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+th, td{
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+h3 {
+  text-align: left;
+}
+
+/*
+    RESPONSIVE PARA MD DE BOOTSTRAP (768PX)
+************************************************************************/
+@media screen and (min-width: 768px) {
+  .Header-Escritorio {
+    display: block;
+  }
+
+  .Header-Moviles {
+    display: none;
+  }
+
+  /* Agregar scroll al contenedor de articulos */
+  .Cont-Articulos {
+    max-height: 100vh;
+    overflow: scroll;
+  }
+
+  /*Se elimina en logo si es MD para arriba*/
+  .invisibleLogo{
+    visibility: hidden !important;
+  }
+}

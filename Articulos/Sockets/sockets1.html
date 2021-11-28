@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../iconos/style.css" />
+  <link rel="stylesheet" href="../../css/NewStyle.css" />
+  <title>Julia Programming Language</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+
+      <!-- Header para la version de escritorio (MD) -->
+      <header class="col-12 col-md-4 Header-Escritorio">
+        <div class="row h-100 align-items-center">
+          <div class="Header-Img-Container">
+            <img src="../../img/JuliaLogoHD.png" alt="JuliaLogo" style="width:85%;">
+            <!--<img src="img/JuliaPanelCut.png" alt="Commands">-->
+          </div>
+        </div>
+      </header>
+      <!-- Fin Header escritorio -->
+
+      <!-- Contenedor Derecho -->
+      <div class="col-12 col-md-8 Cont-Articulos">
+
+        <!-- Barra de navegacion -->
+        <div class="row">
+          <nav class="col-12 navbar navbar-expand-md navbar-light bg-light">
+            <figure class="invisibleLogo logo">
+              <img src="../../img/JuliaLogoHD.png" width="70px">
+            </figure>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../index.html"><span class="nav-opcion"><span
+                        class="icon-home"></span>Inicio</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Info.html"><span class="nav-opcion">
+                    <span class="icon-help-with-circle"></span>¿Quienes somos?</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- Fin barra de navegacion -->
+
+        <!-- Contenedor articulo -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-11 Full-Article-Container">
+
+            <h1>
+              Programación de aplicaciones con sockets
+            </h1>
+            <h3>¿Qué es un socket?</h3>
+            <p>
+              Un socket (enchufe), es un método para la comunicación entre un programa del cliente y un programa del servidor
+              en una red, se define, por tanto, como el punto final en una conexión.
+            </p>
+            <p>
+              Este mecanismo surge a principios de los 80 con el sistema Unix de Berkeley, para proporcionar un medio de
+              comunicación entre procesos y presentan la misma funcionalidad que tiene la comunicación por correo o por
+              teléfono (de un buzón se extraen mensajes completos, mientras que el teléfono permite el envío de flujos de
+              información que no tienen una estructura claramente definida), es decir permiten que un proceso hable (emita o
+              reciba información) con otro incluso estando estos en distintas máquinas. Esta característica de ínterconectividad
+              hace que el concepto de socket sea de gran utilidad.
+            </p><br />
+            <h3>Principios de funcionamiento</h3>
+            <p>
+              Un socket queda definido por un par de direcciones IP local y remota, un protocolo de transporte y un par de
+              números de puerto local y remoto. Para que dos programas puedan comunicarse entre sí es necesario que se
+              cumplan ciertos requisitos:
+            </p>
+            <ul>
+              <li>Que un programa sea capaz de localizar al otro</li>
+              <li>Que ambos programas sean capaces de intercambiarse cualquier secuencia de octetos, es decir, datos relevantes a su finalidad.</li>
+            </ul>
+            <p>
+              Para ello son necesarios los tres recursos que originan el concepto de socket:
+            </p>
+            <ul>
+              <li>Un protocolo de comunicaciones, que permite el intercambio de octetos.</li>
+              <li>Un par de direcciones del Protocolo de Red (Dirección IP, si se utiliza el Protocolo TCP/IP), que identifica la computadora de origen y la remota.</li>
+              <li>Un par de números de puerto, que identifica a un programa dentro de cada computadora.</li>
+            </ul>
+            <p>
+              Los sockets permiten implementar una arquitectura cliente-servidor o peer to peer. La comunicación debe ser
+              iniciada por uno de los programas que se denomina programa cliente. El segundo programa espera a que otro
+              inicie la comunicación, por este motivo se denomina programa servidor.
+            </p>
+            <p>
+              Un socket es un proceso o hilo existente en la máquina cliente y en la máquina servidora, que sirve en última
+              instancia para que el programa servidor y el cliente lean y escriban la información. Esta información será
+              la transmitida por las diferentes capas de red.
+            </p>
+            <p>
+              El programa cliente conoce el nombre de la máquina en la que se ejecuta el servidor y el número de puerto por
+              el que escucha las peticiones. Para realizar una solicitud de conexión, el cliente realiza la petición a la máquina a través del puerto.
+            </p>
+            <img src="../../img//Sockets//funcionamiento1.png"/>
+            <p>
+              Si todo va bien, el servidor acepta la conexión. Una vez aceptada, el servidor obtiene un nuevo socket sobre un puerto diferente.
+              Esto se debe a que por un lado debe seguir atendiendo las peticiones de conexión mediante el socket original y por otro
+              debe antender las necesidades del cliente que se conectó.
+            </p>
+            <img src="../../img//Sockets//funcionamiento2.png"/>
+            <p>
+              En el lado del cliente, si se acepta la conexión, se crea un socket y el cliente puede utilizarlo para comunicarse con el servidor.
+              Este socket utiliza un número de puerto diferente al usado para conectarse al servidor. El cliente y el servidor
+              pueden ahora comunicarse escribiendo y leyendo por sus respectivos sockets.
+            </p><br />
+            <h3>Tipos de sockets</h3>
+            <p>
+              En la actualidad existen varios tipos de socket y cada uno por lo regular se asocia a un tipo de protocolo, por ejemplo:
+            </p>
+            <ul>
+              <li>
+                <strong>SOCK_STREAM: </strong>está asociado al protocolo TCP, este brinda seguridad en la transmisión de datos, seguridad en
+                la recepción, en la integridad y en la secuencia, entre otros.
+              </li>
+              <li>
+                <strong>SOCK_DGRAM: </strong>está asociado al protocolo UDP, e indica que los paquetes viajarán en tipo datagramas,
+                el cual tiene una comunicación asíncrona.
+              </li>
+            </ul><br>
+            <h3>Propiedades de los sockets</h3>
+            <p>
+              Las propiedades de un socket dependen de las características del protocolo en el que se implementan. Generalmente la
+              comunicación con sockets se realiza mediante un protocolo de la familia TCP/IP (Protocolo de Control de Transmisión/Protocolo de Internet).
+              Los dos más utilizados son: TCP (Protocolo de Control de Transmisión) y UDP (Protocolo de Datagrama de Usuario).
+            </p>
+            <p>Cuando se implementan con el protocolo TCP, los sockets tienen las siguientes propiedades:</p>
+            <ul>
+              <li>Orientado a conexión.</li>
+              <li>Se garantiza la transmisión de todos los octetos sin errores ni omisiones.</li>
+              <li>
+                Se garantiza que todo octeto llegará a su destino en el mismo orden en que se ha transmitido.
+                Estas propiedades son muy importantes para garantizar la corrección de los programas que tratan la información.
+              </li>
+            </ul>
+            <p>
+              Por otra parte, el protocolo UDP es un protocolo no orientado a la conexión. Sólo se garantiza que si un mensaje llega, llegue bien.
+              En ningún caso se garantiza que llegue o que lleguen todos los mensajes en el mismo orden que se mandaron. Esto lo hace adecuado para
+              el envío de mensajes frecuentes pero no demasiado importantes.
+            </p>
+
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="./sockets2.html">2</a></li>
+              <li class="page-item"><a class="page-link" href="./sockets3.html">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Fin contenedor articulo -->
+
+      </div>
+      <!-- Fin Contenedor Derecho -->
+
+    </div>
+  </div>
+
+
+  <script src="../js/jquery-3.2.1.slim.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>
