@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../iconos/style.css" />
+  <link rel="stylesheet" href="../../css/NewStyle.css" />
+  <title>Redes y seguridad</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+
+      <!-- Header para la version de escritorio (MD) -->
+      <header class="col-12 col-md-4 Header-Escritorio">
+        <div class="row h-100 align-items-center">
+          <div class="Header-Img-Container">
+            <img src="../../img/JuliaLogoHD.png" alt="JuliaLogo" style="width:85%;">
+            <!--<img src="img/JuliaPanelCut.png" alt="Commands">-->
+          </div>
+        </div>
+      </header>
+      <!-- Fin Header escritorio -->
+
+      <!-- Contenedor Derecho -->
+      <div class="col-12 col-md-8 Cont-Articulos">
+
+        <!-- Barra de navegacion -->
+        <div class="row">
+          <nav class="col-12 navbar navbar-expand-md navbar-light bg-light">
+            <figure class="invisibleLogo logo">
+              <img src="../../img/JuliaLogoHD.png" width="70px">
+            </figure>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../index.html"><span class="nav-opcion"><span
+                        class="icon-home"></span>Inicio</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Info.html"><span class="nav-opcion">
+                    <span class="icon-help-with-circle"></span>¿Quienes somos?</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- Fin barra de navegacion -->
+
+        <!-- Contenedor articulo -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-11 Full-Article-Container">
+
+            <h1>
+              Programación de aplicaciones con sockets
+            </h1>
+            <h3>Sockets en el lenguaje Java</h3>
+            <p>
+              De la manera más simple, la programación con sockets en el lenguaje Java se realiza apoyandose en dos clases:
+            </p>
+            <ul>
+              <li>ServerSocket</li>
+              <li>Socket</li>
+            </ul>
+            <h4>Clase ServerSocket</h4>
+            <p>
+              Se utiliza para implementar el extremo de la conexión que corresponde al servidor, donde se crea un conector
+              en el puerto del servidor que escucha las peticiones de conexión de los clientes.
+            </p>
+            <h5>Constructor de la clase:</h5>
+            <table>
+              <thead>
+                <th>Constructor</th>
+                <th>Características</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong><code>ServerSocket</code></strong>
+                  </td>
+                  <td>
+                    Crea un socket de servidor sin ningún puerto asociado.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>ServerSocket(int port)</code></strong>
+                  </td>
+                  <td>
+                    Crea un socket de servidor que se enlaza al puerto especificado.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>ServerSocket(int port, int backlog)</code></strong>
+                  </td>
+                  <td>
+                    Crea un socket de servidor y lo enlaza con el número de puerto local especificado.
+                    El parámetro backlog permite especificar el número máximo de peticiones de conexión que
+                    se pueden mantener en cola.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>ServerSocket(int port, int backlog, InetAddress bindAddr)</code></strong>
+                  </td>
+                  <td>
+                    Crea un socket de servidor en el puerto indicado, especificando un máximo de peticiones y conexiones entrantes
+                    y la ip del servidor.
+                  </td>
+                </tr>
+              </tbody>
+            </table><br />
+            <h5>Métodos importantes:</h5>
+            <table>
+              <thead>
+                <th>Método</th>
+                <th>Características</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong><code>Socket accept()</code></strong>
+                  </td>
+                  <td>
+                    El método accept() escucha una solicitud de conexión de un cliente y la acepta cuando se recibe.
+                    Una vez que se ha establecido la conexión con el cliente, devuelve un objeto de tipo <strong>Socket</strong>,
+                    a través del cual se establecerá la comunicación con el cliente. Tras esto, el ServerSocket sigue disponible
+                    para realizar nuevos accept().
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>void close()</code></strong>
+                  </td>
+                  <td>
+                    Se encarga de cerrar el <strong>ServerSocket</strong>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>int getLocalPort()</code></strong>
+                  </td>
+                  <td>
+                    Devuelve el puerto local al que está enlazado el <strong>ServerSocket</strong>.
+                  </td>
+                </tr>
+              </tbody>
+            </table><br><br />
+            <h4>Clase Socket</h4>
+            <h5>Constructor de la clase:</h5>
+            <table>
+              <thead>
+                <th>Constructor</th>
+                <th>Características</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong><code>Socket()</code></strong>
+                  </td>
+                  <td>
+                    Crea un socket sin ningún puerto asociado.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>Socket(InetAddress address, int port)</code></strong>
+                  </td>
+                  <td>
+                    Crea un socket y lo conecta al puerto y dirección ip especificados.
+                  </td>
+                </tr>
+              </tbody>
+            </table><br />
+            <h5>Métodos importantes:</h5>
+            <table>
+              <thead>
+                <th>Método</th>
+                <th>Características</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong><code>InputStream getInputStream()</code></strong>
+                  </td>
+                  <td>
+                    Devuelve un InputStream que permite leer bytes desde el <strong>socket</strong> utilizando los
+                    mecanismos de streams.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>OutputStream getOutputStream()</code></strong>
+                  </td>
+                  <td>
+                    Devuelve un OutputStream que permite escribir bytes sobre el socket utilizando los mecanismos de streams.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>void close()</code></strong>
+                  </td>
+                  <td>
+                    Se encarga de cerrar el <strong>Socket</strong>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>InetAddress getInetAddress()</code></strong>
+                  </td>
+                  <td>
+                    Devuelve la dirección IP y puerto a la que el <strong>Socket</strong> está conectado.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>int getLocalPort()</code></strong>
+                  </td>
+                  <td>
+                    Devuelve el puerto local al que esta enlazado el <strong>Socket</strong>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong><code>int getPort()</code></strong>
+                  </td>
+                  <td>
+                    Devuelve el puerto remoto al que esta conectado el <strong>Socket</strong>.
+                  </td>
+                </tr>
+              </tbody>
+            </table><br /><br />
+            <h4>Diagrama del funcionamiento de una conexión de Socket:</h4><br />
+            <img src="../../img//Sockets//diagramaSockets.png" alt="Diagrama funcionamiento Sockets" width="50%"/>
+
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="./sockets1.html" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="./sockets1.html">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="./sockets3.html">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="./sockets3.html" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Fin contenedor articulo -->
+
+      </div>
+      <!-- Fin Contenedor Derecho -->
+
+    </div>
+  </div>
+
+
+  <script src="../js/jquery-3.2.1.slim.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

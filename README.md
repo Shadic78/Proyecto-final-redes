@@ -1,5 +1,5 @@
 # Blog
 
-Una pagina web sencilla, acerca del lenguaje de programación Julia.
+Una pagina web sencilla, acerca de redes y seguridad de computadoras.
 
-https://shadic78.github.io/Julia-Language-Blog/
+https://shadic78.github.io/Proyecto-final-redes/
