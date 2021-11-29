@@ -32,11 +32,10 @@
       <!-- Contenedor Derecho -->
       <div class="col-12 col-md-8 Cont-Articulos">
 
-        <!-- Barra de navegacion -->
         <div class="row">
           <nav class="col-12 navbar navbar-expand-md navbar-light bg-light">
             <figure class="invisibleLogo logo">
-              <img src="../../img/JuliaLogoHD.png" width="70px">
+              <h5>Redes y seguridad</h5>
             </figure>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
               aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,13 +44,11 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="../../index.html"><span class="nav-opcion"><span
-                        class="icon-home"></span>Inicio</span></a>
+                  <a class="nav-link" href="../../index.html"><span class="nav-opcion"><span class="icon-home"></span>Inicio</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../Info.html"><span class="nav-opcion">
-                    <span class="icon-help-with-circle"></span>¿Quienes somos?</span>
-                  </a>
+                  <a class="nav-link" href="../Info.html"><span class="nav-opcion"><span
+                        class="icon-help-with-circle"></span>¿Quienes somos?</span></a>
                 </li>
               </ul>
             </div>
@@ -144,9 +141,134 @@
 
           <h5>Ejemplo 2</h5>
           <p>
-            ...
+            Este ejemplo es similar al ejemplo anterior, pero con la modificación de que en esta ocasión el cliente le envía datos al
+            servidor y el servidor procesa dichos datos y envía una respuesta. La aplicación consiste de una sencilla aplicación por consola
+            en la que el cliente solicita el ingreso de una cadena al usuario y tras ello, envía dicha cadena al servidor, el cual la procesa
+            y la convierta a letras mayúsculas, para posteriormente devolverlo al cliente que realizo la petición.<br />
+            Cabe destacar que la principal diferencia de este ejemplo en comparación con el ejemplo 1 es que en esta ocasión se hace
+            uso de un servidor con hilos, el cual puede atender múltiples peticiones a la vez, por lo que esta forma de implementación de
+            un servidor con <i>Sockets</i> es más apropiada que la del ejemplo 1.
           </p>
-           
+          <h5>Servidor</h5>
+          <p>
+            Como se puede apreciar en el código, la clase CapitalizeServer abre un canal de comunicación con un <strong>ServerSocket</strong>
+            en el puerto 59898 y posteriormente hace uso de la clase <i>ExecutorService</i> para crear un pool de 20 hilos el cual
+            servira para facilitar la creación de hilos. Posterior a ello, se entra en un bucle <i>while</i> infinito en donde el
+            servidor espera por peticiones de clientes. Cuando un cliente se conecta al puerto se hace uso del <i>pool</i> creado
+            con anterioridad para crear un nuevo hilo de ejecución con la clase <i>Capitalizer</i>, la cual se encargara de atender la petición
+            recibida de manera asíncrona. Entonces, cuando se recibe una petición se crea un nuevo hilo y se ejecuta el método <i>run()</i>
+            de la clase <i>Capitalizer</i>, la cual hace uso de un <i>Scanner</i> para obtener los datos que el cliente envió y, tambien
+            hace uso de un <i>PrintWriter</i> para enviar al cliente la cadena enviada convertida a <i>UpperCase</i> o letras
+            mayúsculas.
+          </p>
+          <pre class="line-numbers">
+            <code class="language-java">
+              import java.io.IOException;
+              import java.io.PrintWriter;
+              import java.net.ServerSocket;
+              import java.net.Socket;
+              import java.util.Scanner;
+              import java.util.concurrent.ExecutorService;
+              import java.util.concurrent.Executors;
+              
+              public class CapitalizeServer {
+              
+                  public static void main(String[] args) throws Exception {
+                      try (ServerSocket listener = new ServerSocket(59898)) {
+                          System.out.println("The capitalization server is running...");
+                          ExecutorService pool = Executors.newFixedThreadPool(20);
+                          while (true) {
+                              pool.execute(new Capitalizer(listener.accept()));
+                          }
+                      }
+                  }
+              
+                  private static class Capitalizer implements Runnable {
+                      private Socket socket;
+              
+                      Capitalizer(Socket socket) {
+                          this.socket = socket;
+                      }
+              
+                      @Override
+                      public void run() {
+                          System.out.println("Connected: " + socket);
+                          try {
+                              Scanner in = new Scanner(socket.getInputStream());
+                              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                              while (in.hasNextLine()) {
+                                  out.println(in.nextLine().toUpperCase());
+                              }
+                          } catch (Exception e) {
+                              System.out.println("Error:" + socket);
+                          } finally {
+                              try {
+                                  socket.close();
+                              } catch (IOException e) {
+                              }
+                              System.out.println("Closed: " + socket);
+                          }
+                      }
+                  }
+              }
+            </code>
+         </pre>
+         <h5>Cliente</h5>
+         <p>
+           Por el lado del cliente, al iniciar la aplicación primero se realiza una validación para asegurarse de que el usuario haya ingresado
+           un argumento, el cual es la dirección IP del <strong>Socket</strong> que puede ser <i>localhost</i> si se ejecuta la aplicación de manera local.<br />
+           Posterior a ello, se crea un nuevo <strong>Socket</strong> el cual se conecta a la dirección IP ingresada por el usuario y a un puerto, el cual es
+           el puerto donde el servidor esta escuchando por peticiones. Tras crear la conexión entre el cliente y el servidor se procede a solicitar el ingreso de una
+           cadena o <i>string</i> al usuario la cual posteriormente es enviada al servidor por medio del método <i>println()</i> de una instancia de la clase
+           <i>PrintWriter</i>, la cual fue creada pasando a su constructor el valor devuelto por el método <i>getOutputStream()</i> del <strong>Socket</strong>.
+           Entonces, en el bucle <i>while</i> se itera los datos ingresados por el usuario y se envían al servidor para posteriormente imprimir la respuesta del servidor
+           por medio de una instancia de la clase <i>Scanner</i> a la cual se le paso por su constructor el valor devuelto por el método <i>getInputStream()</i>
+           del <strong>Socket</strong>.
+         </p>
+         <pre class="line-numbers">
+           <code class="language-java">
+            import java.io.IOException;
+            import java.io.InputStreamReader;
+            import java.io.PrintWriter;
+            import java.net.Socket;
+            import java.util.Scanner;
+            
+            public class CapitalizeClient {
+                public static void main(String[] args) throws Exception {
+                    if (args.length != 1) {
+                        System.err.println("Pass the server IP as the sole command line argument");
+                        return;
+                    }
+                    try (Socket socket = new Socket(args[0], 59898)) {
+                        System.out.println("Enter lines of text then Ctrl+D or Ctrl+C to quit");
+                        Scanner scanner = new Scanner(System.in);
+                        Scanner in = new Scanner(socket.getInputStream());
+                        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                        while (scanner.hasNextLine()) {
+                            out.println(scanner.nextLine());
+                            System.out.println(in.nextLine());
+                        }
+                    }
+                }
+            }            
+           </code>
+        </pre>
+        <h5>Ejecución</h5>
+        <p>
+          Este ejemplo, al igual que el <i>Ejemplo 1</i> pueden ser ejecutados al compilar los dos archivos del Cliente y el Servidor correspondientes y
+          posteriormente ejecutar en dos consolas distintas primero el <i>Servidor</i> y luego el <i>Cliente</i>.
+        </p>
+        <img src="../../img//Sockets/ejecucion1.png" alt="Ejecucion 1" />
+        <img src="../../img//Sockets/ejecucion2.png" alt="Ejecucion 2" />
+        <br /><br />
+        <h5>Referencias</h5>
+        <ul>
+          <li><a href="https://www.ecured.cu/Socket" target="_blank">EcuRed. (2019). Sockets.</a></li>
+          <li><a href="https://cruzado.info/tutojava/V_2.htm" target="_blank">Sockets en Java. (s. f.). Guía de Iniciación al Lenguaje JAVA.</a></li>
+          <li><a href="http://www.programandoapasitos.com/2016/01/procesos-y-servicios-programacion-de.html" target="_blank">Programación de Sockets. (2016). Programando a pasitos.</a></li>
+          <li><a href="https://www.javatpoint.com/socket-programming" target="_blank">Java Socket Programming. (2015). Javatpoint.</a></li>
+        </ul>
+
           </div>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -175,9 +297,9 @@
   </div>
 
 
-  <script src="../js/jquery-3.2.1.slim.min.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <script src="../../js/jquery-3.2.1.slim.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
   <script>hljs.highlightAll();</script>
 </body>
 

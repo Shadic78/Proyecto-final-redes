@@ -74,7 +74,7 @@ header img {
   color: black;
 }
 
-.logo{
+.logo {
   display: block;
   margin: 0px;
   padding: 5px 16px;
@@ -150,7 +150,7 @@ ul li {
 
 table {
   border-collapse: collapse;
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -190,6 +190,10 @@ code {
   .Cont-Articulos {
     max-height: 100vh;
     overflow: scroll;
+  }
+
+  table {
+    width: 75%;
   }
 
   /*Se elimina en logo si es MD para arriba*/
