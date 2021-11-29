@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../iconos/style.css" />
+  <link rel="stylesheet" href="../../css/NewStyle.css" />
+  <link rel="stylesheet" href="../../css/monokai-sublime.min.css">
+  <script src="../../js/highlight.min.js"></script>
+  <title>Redes y seguridad</title>
+</head>
+
+<body>
+
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+
+      <!-- Header para la version de escritorio (MD) -->
+      <header class="col-12 col-md-4 no-gutters Header-Escritorio">
+        <div class="row h-100 align-items-center Header-Img-Container no-gutters">
+          <img src="../../img/background.png" alt="background">
+          <div class="Header-Escritorio-Titulo">
+            <span>Redes y seguridad de computadoras</span>
+          </div>
+        </div>
+      </header>
+      <!-- Fin Header escritorio -->
+
+      <!-- Contenedor Derecho -->
+      <div class="col-12 col-md-8 Cont-Articulos">
+
+        <!-- Barra de navegacion -->
+        <div class="row">
+          <nav class="col-12 navbar navbar-expand-md navbar-light bg-light">
+            <figure class="invisibleLogo logo">
+              <img src="../../img/JuliaLogoHD.png" width="70px">
+            </figure>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../index.html"><span class="nav-opcion"><span
+                        class="icon-home"></span>Inicio</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Info.html"><span class="nav-opcion">
+                    <span class="icon-help-with-circle"></span>¿Quienes somos?</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- Fin barra de navegacion -->
+
+        <!-- Contenedor articulo -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-11 Full-Article-Container">
+
+            <h1>
+              Programación de aplicaciones con sockets
+            </h1>
+            <h3>Ejemplo de uso de Sockets con Java</h3>
+            <p>
+              A continuación se presenta dos ejemplos básicos de uso de Sockets en el lenguaje Java.
+            </p>
+            <h5>Ejemplo 1</h5>
+            <p>
+              Este ejemplo consiste de una aplicación de consola dividida en cliente-servidor, la cual consiste de un servidor el cual escucha
+              por peticiones de clientes y devuelve la fecha actual y un cliente el cual se conecta al servidor para obtener la fecha actual.<br />
+              Cabe destacar que este ejemplo básicamente es un servidor secuencial, lo que significa que únicamente puede atender una petición
+              a la vez, por lo que solo es un ejemplo básico del funcionamiento de Sockets y no un ejemplo de como códificar una verdadera aplicación
+              con Sockets.
+            </p>
+            <h5>Servidor</h5>
+            <p>
+              Como se puede apreciar en el código, la clase DateServer abre un canal de comunicación al crear una nueva instancia de <strong>ServerSocket</strong>
+              en el puerto local 59090. Posterior a crear dicha instancia, la clase entra en un bucle <i>while</i> infinito en el cual la clase
+              se dedíca a esperar peticiones mediante el método <i>accept()</i>. <br />
+              En este punto del código, el servidor únicamente ejecuta el código que se encuentra dentro del bloque <i>try</i> cuando recibe una
+              petición de un cliente. Cuando dicho evento ocurre, el servidor crea una instancia de <i>PrintWriter</i> pasando a su constructor el <strong>outputStream</strong>
+              del <strong>ServerSocket</strong> para poder escribir y enviar bytes a traves de <i>PrintWritter</i>. Posterior a la creación de la instancia
+              de <i>PrintWritter</i> el servidor hace uso del método <i>println()</i> para enviar al cliente que hizo la petición una cadena o <i>string</i>
+              la cual contiene los datos de la fecha actual.
+            </p>
+            <pre class="line-numbers">
+              <code class="language-java">
+                import java.io.IOException;
+                import java.io.PrintWriter;
+                import java.net.ServerSocket;
+                import java.net.Socket;
+                import java.util.Date;
+                
+                public class DateServer {
+                    public static void main(String[] args) throws IOException {
+                        try (ServerSocket listener = new ServerSocket(59090)) {
+                            System.out.println("The date server is running...");
+                            while (true) {
+                                try (Socket socket = listener.accept()) {
+                                    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                                    out.println(new Date().toString());
+                                }
+                            }
+                        }
+                    }
+                }
+              </code>
+           </pre>
+           <h5>Cliente</h5>
+           <p>
+             La clase DateClient recibe un argumento por consola, el cual es la dirección IP que tendra asignado el <strong>Socket</strong>.
+             Tras validar el ingreso del argumento por consola, se crea una nueva instancia de <strong>Socket</strong> asignando la dirección
+             IP pasada como argumento en la ejecución y un número de puerto, que es el mismo que el que el servidor esta usando
+             para escuchar peticiones.<br />
+             De esta manera el <strong>Socket</strong> se conecta con el servidor y se crea una instancia de <i>Scanner</i> pasando
+             a su constructor el objeto devuelto por el método <i>getInputStream()</i> del <strong>Socket</strong>. Tras ello,
+             se hace uso del método <i>nextLine()</i> de <i>Scanner</i> para obtener e imprimir por consola la respuesta del servidor.
+           </p>
+           <pre class="line-numbers">
+             <code class="language-java">
+              import java.util.Scanner;
+              import java.net.Socket;
+              import java.io.IOException;
+              
+              public class DateClient {
+                  public static void main(String[] args) throws IOException {
+                      if (args.length != 1) {
+                          System.err.println("Pass the server IP as the sole command line argument");
+                          return;
+                      }
+                      Socket socket = new Socket(args[0], 59090);
+                      Scanner in = new Scanner(socket.getInputStream());
+                      System.out.println("Server response: " + in.nextLine());
+                  }
+              }
+             </code>
+          </pre><br />
+
+          <h5>Ejemplo 2</h5>
+          <p>
+            ...
+          </p>
+           
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="./sockets2.html" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="./sockets1.html">1</a></li>
+              <li class="page-item"><a class="page-link" href="./sockets2.html">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Fin contenedor articulo -->
+
+      </div>
+      <!-- Fin Contenedor Derecho -->
+
+    </div>
+  </div>
+
+
+  <script src="../js/jquery-3.2.1.slim.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>
