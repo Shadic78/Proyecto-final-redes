@@ -125,7 +125,7 @@ article:hover {
   margin-top: 2em;
   margin-bottom: 2em;
   box-sizing: border-box;
-  padding: 1.8em;
+  padding: 2.2em;
   color: rgb(84, 84, 84);
 }
 
@@ -134,9 +134,13 @@ article:hover {
   margin-bottom: 1.3em;
 }
 
-.Full-Article-Container p {
+.Full-Article-Container p, li {
   text-align: justify;
   font-size: 1.1em;
+}
+
+.Full-Article-Container li p {
+  font-size: 1em;
 }
 
 .Full-Article-Container img {

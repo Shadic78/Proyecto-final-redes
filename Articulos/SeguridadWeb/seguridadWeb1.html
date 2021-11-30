@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../iconos/style.css" />
+  <link rel="stylesheet" href="../../css/NewStyle.css" />
+  <title>Redes y seguridad</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+
+      <!-- Header para la version de escritorio (MD) -->
+      <header class="col-12 col-md-4 no-gutters Header-Escritorio">
+        <div class="row h-100 align-items-center Header-Img-Container no-gutters">
+          <img src="../../img/background.png" alt="background">
+          <div class="Header-Escritorio-Titulo">
+            <span>Redes y seguridad de computadoras</span>
+          </div>
+        </div>
+      </header>
+      <!-- Fin Header escritorio -->
+
+      <!-- Contenedor Derecho -->
+      <div class="col-12 col-md-8 Cont-Articulos">
+
+        <!-- Barra de navegacion -->
+        <div class="row">
+          <nav class="col-12 navbar navbar-expand-md navbar-light bg-light">
+            <figure class="invisibleLogo logo">
+              <h5>Redes y seguridad</h5>
+            </figure>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../index.html"><span class="nav-opcion"><span
+                        class="icon-home"></span>Inicio</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Info.html"><span class="nav-opcion">
+                    <span class="icon-help-with-circle"></span>¿Quienes somos?</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- Fin barra de navegacion -->
+
+        <!-- Contenedor articulo -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-11 Full-Article-Container">
+
+            <h1>
+              Seguridad en la web
+            </h1>
+            <p>
+              Al hablar sobre la seguridad en la web se suele hablar de dos HTTPS y SSL, sin embargo es necesario conocer primero que es HTTP.
+            </p>
+            <h3>Protocolo HTTP</h3>
+            <p>
+              HTTP, de sus siglas en inglés: "Hypertext Transfer Protocol", es el nombre de un protocolo el cual nos permite realizar una
+              petición de datos y recursos, como pueden ser documentos HTML. Es la base de cualquier intercambio de datos en la Web, y un
+              protocolo de estructura cliente-servidor, esto quiere decir que una petición de datos es iniciada por el elemento que recibirá
+              los datos (el cliente), normalmente un navegador Web. Así, una página web completa resulta de la unión de distintos sub-documentos
+              recibidos, como, por ejemplo: un documento que especifique el estilo de maquetación de la página web (CSS), el texto, las imágenes,
+              vídeos, scripts, etc.
+            </p>
+            <img src="../../img/SeguridadWeb/http1.png" alt="Diagrama de HTTP" />
+            <br />
+            <p>
+              Este protocolo fue diseñado a principios de la década de 1990. HTTP es un protocolo ampliable, que ha ido evolucionando con el tiempo.
+              Es lo que se conoce como un protocolo de la capa de aplicación, y se transmite sobre el protocolo TCP, o el protocolo encriptado TLS
+              (en-US), aunque teóricamente podría usarse cualquier otro protocolo fiable. Gracias a que es un protocolo capaz de ampliarse, se usa
+              no solo para transmitir documentos de hipertexto (HTML), si no que además, se usa para transmitir imágenes o vídeos, o enviar datos o
+              contenido a los servidores, como en el caso de los formularios de datos. HTTP puede incluso ser utilizado para transmitir partes de
+              documentos, y actualizar páginas Web en el acto.
+            </p>
+            <h3>Arquitectura</h3>
+            <p>
+              HTTP es un protocolo basado en el principio de cliente-servidor: las peticiones son enviadas por una entidad: el agente del usuario
+              (o un proxy a petición de uno). La mayoría de las veces el agente del usuario (cliente) es un navegador Web, pero podría ser
+              cualquier otro programa, como por ejemplo un programa-robot, que explore la Web, para adquirir datos de su estructura y contenido
+              para uso de un buscador de Internet.
+            </p>
+            <p>
+              Cada petición individual se envía a un servidor, el cuál la gestiona y responde. Entre cada petición y respuesta, hay varios
+              intermediarios, normalmente denominados proxies (en-US), los cuales realizan distintas funciones, como: gateways o caches. 
+            </p>
+            <p>
+              En realidad, hay más elementos intermedios, entre un navegador y el servidor que gestiona su petición: hay otros tipos de
+              dispositivos: como routers o modems. Sin embargo, es gracias a la arquitectura en capas de la Web, que estos intermediarios,
+              son transparentes al navegador y al servidor, ya que HTTP se apoya en los protocolos de red y transporte. HTTP es un protocolo de
+              aplicación, y por tanto se apoya sobre los anteriores. Aunque para diagnosticar problemas en redes de comunicación, las capas
+              inferiores son irrelevantes para la definición del protocolo HTTP. 
+            </p>
+            <img src="../../img/SeguridadWeb/http2.png" alt="Arquitectura HTTP" />
+            <h3>Características del protocolo</h3><br />
+            <h5>Sencillez</h5>
+            <p>
+              Incluso con el incremento de complejidad, que se produjo en el desarrollo de la versión del protocolo HTTP/2, en la que se
+              encapsularon los mensajes, HTTP esta pensado y desarrollado para ser leído y fácilmente interpretado por las personas,
+              haciendo de esta manera más facil la depuración de errores, y reduciendo la curva de aprendizaje para las personan que
+              empieza a trabajar con él.
+            </p>
+            <h5>Extensibilidad</h5>
+            <p>
+              Presentadas en la versión HTTP/1.0, las cabeceras de HTTP, han hecho que este protocolo sea fácil de ampliar y de experimentar
+              con él. Funcionalidades nuevas pueden desarrollarse, sin más que un cliente y su servidor, comprendan la
+              misma semántica sobre las cabeceras de HTTP.
+            </p>
+            <h5>Sesiones sin estados</h5>
+            <p>
+              HTTP es un protocolo sin estado, es decir: no guarda ningún dato entre dos peticiones en la mísma sesión.
+              Esto crea problemáticas, en caso de que los usuarios requieran interactuar con determinadas páginas Web de
+              forma ordenada y coherente, por ejemplo, para el uso de "cestas de la compra" en páginas que utilizan en
+              comercio electrónico. Pero, mientras HTTP ciertamente es un protocolo sin estado, el uso de HTTP cookies,
+              si permite guardar datos con respecto a la sesión de comunicación. Usando la capacidad de ampliación del
+              protocolo HTTP, las cookies permiten crear un contexto común para cada sesión de comunicación.
+            </p>
+            <h5>Conexiones</h5>
+            <p>
+              Una conexión se gestiona al nivel de la capa de trasporte, y por tanto queda fuera del alcance del protocolo HTTP.
+              Aún con este factor, HTTP no necesita que el protocolo que lo sustenta mantenga una conexión continua entre los
+              participantes en la comunicación, solamente necesita que sea un protocolo fiable o que no pierda mensajes
+              (como mínimo, en todo caso, un protocolo que sea capaz de detectar que se ha perdido un mensaje y reporte un error).
+              De los dos protocolos más comunes en Internet, TCP es fiable, mientras que UDP, no lo es. Por lo tanto HTTP, 
+              e apoya en el uso del protocolo TCP, que está orientado a conexión, aunque una conexión continua no es necesaria siempre. 
+            </p>
+            <h3>Mensajes HTTP</h3>
+            <p>
+              En las versiones del protocolo HTTP/1.1 y anteriores los mensajes eran de formato texto y eran totalmente
+              comprensibles directamente por una persona. En HTTP/2, los mensajes estan estructurados en un nuevo formato
+              binario y las tramas permiten la compresión de las cabeceras y su multiplexación. Así pues, incluso si
+              solamente parte del mensaje original en HTTP se envía en este formato, la sematica de cada mensaje es la
+              misma y el cliente puede formar el mensaje original en HTTP/1.1. Luego, es posible interpretar los mensajes
+              HTTP/2 en el formato de HTTP/1.1.
+            </p>
+            <p>
+              Existen dos tipos de mensajes HTTP: peticiones y respuestas, cada uno sigue su propio formato.
+            </p>
+            <h3>Peticiones</h3>
+            <img src="../../img/SeguridadWeb/http3.png" alt="Peticion HTTP"/>
+            <p>
+              Una petición de HTTP, está formado  por los siguientes campos:
+            </p>
+            <ul>
+              <li>
+                Un método HTTP,  normalmente pueden ser un verbo, como: GET, POST o un nombre como: OPTIONS(en-US) o
+                HEAD (en-US), que defina la operación que el cliente quiera realizar. El objetivo de un cliente,
+                suele ser una petición de recursos, usando GET, o presentar un valor de un formulario HTML, usando
+                POST, aunque en otras ocasiones puede hacer otros tipos de peticiones.
+              </li>
+              <li>
+                La dirección del recurso pedido; la URL del recurso, sin los elementos obvios por el contexto,
+                como pueden ser: sin el  protocolo (http://), el dominio, o el puerto TCP.
+              </li>
+              <li>
+                La versión del protocolo HTTP.
+              </li>
+              <li>
+                Cabeceras HTTP opcionales, que pueden aportar información adicional a los servidores.
+              </li>
+              <li>
+                Un cuerpo de mensaje, en algún método, como puede ser POST, en el cual envía la información para el servidor.
+              </li>
+            </ul>
+            <h3>Respuestas</h3>
+            <img src="../../img/SeguridadWeb/http4.png" alt="Respuesta HTTP"/>
+            <p>
+              Las respuestas están formadas por los siguentes campos:
+            </p>
+            <ul>
+              <li>
+                La versión del protocolo HTTP que están usando.
+              </li>
+              <li>
+                Un código de estado, indicando si la petición ha sido exitosa, o no, y debido a que.
+              </li>
+              <li>
+                Un mensaje de estado, una breve descripción del código de estado. 
+              </li>
+              <li>
+                Cabeceras HTTP, como las de las peticiones.
+              </li>
+              <li>
+                Opcionalmente, el recurso que se ha pedido.
+              </li>
+            </ul>
+
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="./seguridadWeb2.html">2</a></li>
+              <li class="page-item"><a class="page-link" href="./seguridadWeb3.html">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Fin contenedor articulo -->
+
+      </div>
+      <!-- Fin Contenedor Derecho -->
+
+    </div>
+  </div>
+
+
+  <script src="../../js/jquery-3.2.1.slim.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../iconos/style.css" />
+  <link rel="stylesheet" href="../../css/NewStyle.css" />
+  <title>Redes y seguridad</title>
+
+</head>
+
+<body>
+
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+
+      <!-- Header para la version de escritorio (MD) -->
+      <header class="col-12 col-md-4 no-gutters Header-Escritorio">
+        <div class="row h-100 align-items-center Header-Img-Container no-gutters">
+          <img src="../../img/background.png" alt="background">
+          <div class="Header-Escritorio-Titulo">
+            <span>Redes y seguridad de computadoras</span>
+          </div>
+        </div>
+      </header>
+      <!-- Fin Header escritorio -->
+
+      <!-- Contenedor Derecho -->
+      <div class="col-12 col-md-8 Cont-Articulos">
+
+        <!-- Barra de navegacion -->
+        <div class="row">
+          <nav class="col-12 navbar navbar-expand-md navbar-light bg-light">
+            <figure class="invisibleLogo logo">
+              <h5>Redes y seguridad</h5>
+            </figure>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../../index.html"><span class="nav-opcion"><span
+                        class="icon-home"></span>Inicio</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Info.html"><span class="nav-opcion">
+                    <span class="icon-help-with-circle"></span>¿Quienes somos?</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <!-- Fin barra de navegacion -->
+
+        <!-- Contenedor articulo -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-11 Full-Article-Container">
+
+            <h1>
+              Seguridad en la web
+            </h1>
+            <h3>HTTPS y certificados SSL</h3>
+            <h5>¿Qué es SSL/TLS?</h5>
+            <p>
+              Las siglas SSL (Secure Socket Layers) designan a una tecnología utilizada para cifrar y verificar
+              el tráfico de datos en Internet. Aplicada en páginas web, asegura la comunicación entre el navegador
+              y el servidor web. En especial, en el contexto del eCommerce y la banca online, donde se intercambian
+              numerosos datos sensibles y confidenciales, es imprescindible implementar un certificado SSL o
+              TSL (Transport Layer Security), su sucesor.
+            </p>
+            <p>
+              Los datos que se suelen proteger con un protocolo de encriptación SSL/TLS son, entre otros:
+            </p>
+            <ul>
+              <li>Los datos de registro: nombre, dirección, dirección de correo electrónico, número de teléfono.</li>
+              <li>Los datos de acceso: dirección de correo electrónico y contraseña.</li>
+              <li>Información bancaria: número de tarjeta de crédito, cuenta bancaria.</li>
+              <li>Formularios.</li>
+              <li>Documentos que han subido los clientes.</li>
+            </ul>
+            <p>
+              El certificado SSL/TLS garantiza que la comunicación no se podrá leer ni manipular y
+              que la información personal no caerá en las manos equivocadas.
+            </p>
+            <h3>¿Como pasar una página web a HTTPS?</h3>
+            <p>
+              Las páginas web nuevas pueden disponer de un certificado SSL/TLS desde el principio.
+              Para webs ya existentes, el cambio a SSL/TLS tampoco demanda mucho esfuerzo.
+              El primer paso es el mismo en ambos casos: adquirir un certificado SSL para el dominio.
+            </p>
+            <h5>Adquisición de un certificado SSL</h5>
+            <p>
+              El certificado SSL es una especie de prueba de identidad para una página web.
+              La Autoridad de Certificación (CA) que los otorga se encarga de examinar la identidad
+              y avala la veracidad de la información. Los certificados SSL se guardan en el servidor
+              y se solicitan cada vez que un usuario visita una página web HTTPS. Existen diferentes
+              tipos de certificados, diferenciados principalmente por el alcance de la autenticación que ofrecen:
+            </p>
+            <ul>
+              <li>
+                <strong>Certificados con validación de dominio (Domain Validated Certificate) – gratuito y de pago</strong><br />
+                <p>
+                  Estos son los certificados con el nivel más básico de autenticación. Para este certificado, la Autoridad de
+                  Certificación verifica únicamente si el solicitante es el propietario del dominio que quiere certificar. La
+                  información de la empresa no se comprueba, lo que implica ciertos riesgos. Esto hace que el proceso de autenticación
+                  no requiera mucho tiempo, por lo que se emite con rapidez y es el más barato de los tres tipos de certificados
+                  SSL, a veces, incluso completamente gratis.
+                </p>
+                <p>
+                  Este tipo de certificado es adecuado para páginas web donde la credibilidad y la confianza de los usuarios
+                  juegan un papel secundario y no existe un riesgo de phishing, suplantación de identidad o fraude.
+                </p>
+              </li>
+              <li>
+                <strong>Certificados de validación de la organización o empresa (Organization Validated Certificate) – de pago</strong><br />
+                <p>
+                  Este tipo de autenticación es más amplio y, por lo tanto, más seguro que el certificado de valoración de dominios.
+                  Además de verificar la propiedad del dominio, la Autoridad de Certificación verifica información corporativa relevante
+                  como, por ejemplo, su inscripción en el Registro Mercantil. Una vez comprobados, dichos datos son visibles para los
+                  visitantes de la web, lo que aumenta su confianza en el sitio y en la empresa. Como consecuencia del proceso de validación,
+                  este certificado es mucho más caro que el de dominio, pero ofrece un nivel más alto de seguridad.
+                </p>
+                <p>
+                  Este certificado es adecuado para páginas web donde se llevan a cabo transacciones que implican el intercambio de datos no sensibles.
+                </p>
+              </li>
+              <li>
+                <strong>Certificados de validación extendida (Extended Validation Certificates) – de pago</strong><br />
+                <p>
+                  Este es el certificado que ofrece el nivel más alto de autenticación. En contraste con el certificado de validación de
+                  empresa, en este la información de la empresa se analiza en detalle en función de los estrictos criterios de adjudicación.
+                  Este certificado solo puede ser otorgado por CA autorizados. Este exhaustivo examen de la empresa garantiza el más elevado
+                  nivel de seguridad y fortalece la credibilidad de la página. Como consecuencia, es el más caro de todos.
+                </p>
+                <p>
+                  Este certificado es adecuado para páginas web que recopilan, por ejemplo, datos de cuentas bancarias o tarjetas
+                  de crédito, así como otros tipos de información sensible.
+                </p>
+              </li>
+            </ul>
+            <p>
+              En la siguiente imagen se presenta una infografía de los distintos tipos de certificados:
+            </p>
+            <img src="../../img/SeguridadWeb/ssl1.jpg" alt="Certificados SSL" /><br />
+            <h5>Instalación y configuración</h5>
+            <p>
+              En el siguiente paso, se procede a la instalación del certificado SSL en el servidor. Muchos proveedores de
+              servicios de alojamiento web se encargan de ello por sus clientes. Normalmente puede solicitarse en la sección
+              de clientes y el proveedor se encarga del resto. La instalación variará dependiendo del proveedor, pero, por lo general,
+              los proveedores o los organismos certificadores ponen a disposición del usuario las instrucciones correspondientes para
+              su instalación. Que el protocolo se ejecute sin problemas dependerá principalmente de tres aspectos:
+            </p>
+            <ul>
+              <li>Elección del certificado apropiado</li>
+              <li>Cifrado correcto</li>
+              <li>Configuración adecuada en el servidor</li>
+            </ul>
+            <h5>Errores comunes</h5>
+            <p>
+              Durante la implementación del protocolo pueden surgir algunos errores que pueden conducir a
+              perder posiciones en el buscador o incluso a que la página deje de estar disponible.
+            </p>
+            <p>
+              Los administradores web que migran su proyecto a HTTPS deberían:
+            </p>
+            <ul>
+              <li>
+                <strong>Evitar los certificados expirados:</strong> un certificado SSL inválido genera un mensaje de advertencia en la
+                ventana del navegador. Con esto, el objetivo de transmitir confianza y seguridad al usuario se pierde completamente.
+              </li>
+              <li>
+                <strong>Configurar una redirección correcta:</strong> para evitar el contenido duplicado, los webmasters deben configurar la redirección 301.
+                Esto evita que los buscadores reconozcan a la web HTTP y a la web HTTPS como dos páginas diferentes
+                y que espere contenido diferente de cada una.
+              </li>
+              <li>
+                <strong>Ajustar las cuentas publicitarias (Google AdWords, Bing Ads, etc.):</strong> si se incrusta contenido sin cifrar en
+                una página web HTTPS (como imágenes, scripts, etc.), aparecerá un mensaje de advertencia que hará dudar a los usuarios.
+                Esto resulta especialmente problemático con los anuncios, pues la mayoría de la publicidad suele entregarse sin cifrar,
+                por lo que es necesario adaptarlos si se quiere garantizar la máxima seguridad.
+              </li>
+              <li>
+                <strong>Actualización del mapa del sitio en XML:</strong> el mapa del sitio también debe actualizarse y guardarse
+                en las Herramientas para Desarrolladores de Google.
+              </li>
+              <li>
+                <strong>Comprobar los enlaces externos e internos:</strong> incluso cuando las redirecciones 301 evitan los enlaces defectuosos,
+                todos los enlaces internos deben ser reemplazados una vez implementado el certificado HTTPS. Dependiendo de
+                cómo se administre el contenido en el CMS, será necesario modificarlos a mano. Para los enlaces externos
+                se debe intentar, en la medida de lo posible, cambiar aquellos enlaces principales (p. ej., a páginas con gran autoridad) a la dirección HTTPS.
+              </li>
+            </ul>
+           
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="./seguridadWeb1.html">1</a></li>
+              <li class="page-item"><a class="page-link" href="./seguridadWeb2.html">2</a></li>
+              <li class="page-item active"><a class="page-link" href="#">3</a></li>
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Fin contenedor articulo -->
+
+      </div>
+      <!-- Fin Contenedor Derecho -->
+
+    </div>
+  </div>
+
+
+  <script src="../../js/jquery-3.2.1.slim.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+</body>
+
+</html>
